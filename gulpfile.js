@@ -16,15 +16,11 @@ gulp.task('svg', function (svg) {
     }))
     .pipe(cheerio({
       run: function ($) {
+        $('[fill]').removeAttr('fill');
         $('svg').attr('width', 0);
         $('svg').attr('height', 0);
-        $('[fill]').each(function () {
-          if ($(this).attr('fill') !== 'none') {
-            $(this).attr('fill', 'none');
-          }
-        });
       },
-      parserOptions: { xmlMode: true }
+      parserOptions: { xmlMode: false }
     }))
     .pipe(gulp.dest(`./svg-sprite/`))
 });
