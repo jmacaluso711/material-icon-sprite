@@ -7,7 +7,7 @@
         <g id="Navigation" transform="translate(-199.000000, -58.000000)">
             <g id="ic_arrow_drop_down" transform="translate(192.000000, 48.000000)">
                 <g id="Icon-24px">
-                    <polygon id="Shape" fill="#000000" points="7 10 12 15 17 10"></polygon>
+                    <polygon id="Shape" fill="none" points="7 10 12 15 17 10"></polygon>
                     <polygon id="Shape" points="0 0 24 0 24 24 0 24"></polygon>
                 </g>
             </g>

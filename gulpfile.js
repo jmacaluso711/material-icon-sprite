@@ -11,14 +11,20 @@ gulp.task('svg', function (svg) {
     .pipe(rename({
       prefix: 'icon-'
     }))
-    .pipe(cheerio({
-      run: function ($) {
-        $('[fill]').removeAttr('fill');
-      },
-      parserOptions: { xmlMode: false }
-    }))
     .pipe(svgstore({
       inlineSvg: true
+    }))
+    .pipe(cheerio({
+      run: function ($) {
+        $('svg').attr('width', 0);
+        $('svg').attr('height', 0);
+        $('[fill]').each(function () {
+          if ($(this).attr('fill') !== 'none') {
+            $(this).attr('fill', 'none');
+          }
+        });
+      },
+      parserOptions: { xmlMode: true }
     }))
     .pipe(gulp.dest(`./svg-sprite/`))
 });
